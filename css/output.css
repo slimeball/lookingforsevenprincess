@@ -1,0 +1,77 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Benu (slimeball@foxmail.com)
+ * @date    2014-08-15 09:55:08
+ * @version $Id$
+ */
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
+body{font:14px"微软雅黑","Arial Narrow",HELVETICA;background: #fcc3dc;-webkit-text-size-adjust:100%;}
+a{color:#2d374b;text-decoration:none}
+a:hover{color:#cd0200;text-decoration:none;}
+em{font-style:normal}
+li{list-style:none}
+img{border:0;vertical-align:middle}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word}
+input{outline: none;}
+/*初始化*/
+
+.z_submitfin{display: none;position: fixed;top: 26%;left: 38%;z-index:9999;width: 377px;height: 264px;background: url(../images/confirm_bg01.png) no-repeat;}
+	.z_submitfin .theme-poptit a{position: absolute;right: -19px;top: 30px;display: block;}
+	.z_submitfin .qidai_text{position: absolute;top: 83px;left: 102px;color: #fff;font-size: 16px;text-align: center;line-height: 27px;}
+	.z_submitfin .z_iknow{display: block;width: 122px;height: 39px;background: #ea3d80;color:#fff;font-size: 24px;line-height: 39px;text-align: center;position: absolute;top: 195px;left: 145px;border-radius: 7px;}
+		.z_submitfin .z_share{color: #fff;font-size: 14px;position: absolute;top: 151px;right: 123px;}
+		.z_submitfin .z_share img{margin-left: 1px;cursor: pointer;}
+		.z_iknow{cursor: pointer;}
+.theme-popover-mask-z_submitfin {z-index: 9998; position:fixed; top:0; left:0; width:100%; height:100%; background:#000; opacity:0.7; filter:alpha(opacity=40); display:none ;}
+/*提交完成*/
+
+.z_toupiao{display: none;position: fixed;top: 26%;left: 38%;z-index:9999;width: 376px;height: 233px;background: url(../images/confirm_bg.png) no-repeat;}
+	.z_toupiao .theme-poptit a{position: absolute;right: -19px;top: 30px;display: block;}
+	.z_toupiao .qidai_text{position: absolute;top: 72px;left: 68px;color: #fff;font-size: 16px;text-align: center;line-height: 27px;}
+	.z_toupiao .z_iknow{display: block;width: 122px;height: 39px;background: #ea3d80;color:#fff;font-size: 24px;line-height: 39px;text-align: center;position: absolute;top: 143px;left: 136px;border-radius: 7px;}
+.theme-popover-mask-z_toupiao {z-index: 9998; position:fixed; top:0; left:0; width:100%; height:100%; background:#000; opacity:0.7; filter:alpha(opacity=40); display:none ;}
+/*先投票再抽奖 */
+
+.z_nochance{display: none;position: fixed;top: 26%;left: 38%;z-index:9999;width: 376px;height: 233px;background: url(../images/confirm_bg.png) no-repeat;}
+	.z_nochance .theme-poptit a{position: absolute;right: -19px;top: 30px;display: block;}
+	.z_nochance .qidai_text{position: absolute;top: 72px;left: 101px;color: #fff;font-size: 16px;text-align: center;line-height: 27px;}
+	.z_nochance .z_iknow{display: block;width: 122px;height: 39px;background: #ea3d80;color:#fff;font-size: 24px;line-height: 39px;text-align: center;position: absolute;top: 143px;left: 136px;border-radius: 7px;}
+.theme-popover-mask-z_nochance {z-index: 9998; position:fixed; top:0; left:0; width:100%; height:100%; background:#000; opacity:0.7; filter:alpha(opacity=40); display:none ;} 
+/*机会用完*/
+
+.z_nexttime{display: none;position: fixed;top: 26%;left: 38%;z-index:9999;width: 376px;height: 233px;background: url(../images/confirm_bg.png) no-repeat;}
+	.z_nexttime .theme-poptit a{position: absolute;right: -19px;top: 30px;display: block;}
+	.z_nexttime .qidai_text{position: absolute;top: 72px;left: 89px;color: #fff;font-size: 16px;text-align: center;line-height: 27px;}
+	.z_nexttime .z_iknow{display: block;width: 122px;height: 39px;background: #ea3d80;color:#fff;font-size: 24px;line-height: 39px;text-align: center;position: absolute;top: 143px;left: 136px;border-radius: 7px;}
+.theme-popover-mask-z_nexttime {z-index: 9998; position:fixed; top:0; left:0; width:100%; height:100%; background:#000; opacity:0.7; filter:alpha(opacity=40); display:none ;} 
+/*投票次数达上限*/
+
+.z_toupiaosuss{display: none;position: fixed;top: 26%;left: 38%;z-index:9999;width: 376px;height: 233px;background: url(../images/confirm_bg.png) no-repeat;}
+	.z_toupiaosuss .theme-poptit a{position: absolute;right: -19px;top: 30px;display: block;}
+	.z_toupiaosuss .qidai_text{position: absolute;top: 87px;left: 149px;color: #fff;font-size: 24px;text-align: center;line-height: 27px;}
+	.z_toupiaosuss .z_iknow{display: block;width: 122px;height: 39px;background: #ea3d80;color:#fff;font-size: 24px;line-height: 39px;text-align: center;position: absolute;top: 143px;left: 136px;border-radius: 7px;}
+.theme-popover-mask-z_toupiaosuss {z-index: 9998; position:fixed; top:0; left:0; width:100%; height:100%; background:#000; opacity:0.7; filter:alpha(opacity=40); display:none ;} 
+/*投票成功*/
+
+.z_luckyone{display: none;position: fixed;top: 26%;left: 38%;z-index:9999;width: 377px;height: 264px;background: url(../images/confirm_bg01.png) no-repeat;}
+	.z_luckyone .theme-poptit a{position: absolute;right: -19px;top: 30px;display: block;}
+	.z_luckyone .qidai_text{position: absolute;top: 57px;left: 87px;color: #fff;font-size: 16px;text-align: center;line-height: 27px;}
+	.z_luckyone .qidai_text span{color: #fffc00;}
+	.z_luckyone .z_iknow{display: block;width: 122px;height: 39px;background: #ea3d80;color:#fff;font-size: 24px;line-height: 39px;text-align: center;position: absolute;top: 195px;left: 145px;border-radius: 7px;}
+		.z_luckyone .z_share{color: #fff;font-size: 14px;position: absolute;top: 151px;right: 123px;}
+		.z_luckyone .z_share img{margin-left: 1px;cursor: pointer;}
+		.z_iknow{cursor: pointer;}
+.theme-popover-mask-z_luckyone {z-index: 9998; position:fixed; top:0; left:0; width:100%; height:100%; background:#000; opacity:0.7; filter:alpha(opacity=40); display:none ;}
+/*中奖了*/
+
+.z_notluck{display: none;position: fixed;top: 26%;left: 38%;z-index:9999;width: 377px;height: 264px;background: url(../images/confirm_bg01.png) no-repeat;}
+	.z_notluck .theme-poptit a{position: absolute;right: -19px;top: 30px;display: block;}
+	.z_notluck .qidai_text{position: absolute;top: 66px;left: 130px;color: #fff;font-size: 16px;text-align: center;line-height: 27px;}
+	.z_notluck .z_iknow{display: block;width: 122px;height: 39px;background: #ea3d80;color:#fff;font-size: 24px;line-height: 39px;text-align: center;position: absolute;top: 195px;left: 145px;border-radius: 7px;}
+		.z_notluck .z_share{color: #fff;font-size: 14px;position: absolute;top: 151px;right: 123px;}
+		.z_notluck .z_share img{margin-left: 1px;cursor: pointer;}
+		.z_iknow{cursor: pointer;}
+.theme-popover-mask-z_notluck {z-index: 9998; position:fixed; top:0; left:0; width:100%; height:100%; background:#000; opacity:0.7; filter:alpha(opacity=40); display:none ;}
+/*没中奖*/

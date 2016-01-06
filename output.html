@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>首页</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<script type="text/javascript" src="./js/jquery-1.9.1.js"></script>
+<link href="./css/output.css" rel="stylesheet">
+</head>
+<body>
+<input type="submit" name="Submit" value="提交完成" id="submitfin">
+<p>抽奖页面:</p>
+<input type="submit" name="Submit" value="先投票再抽奖" id="toupiao">
+<input type="submit" name="Submit" value="抽奖机会用完" id="nochance">
+<p>个人中心页面:</p>
+<input type="submit" name="Submit" value="投票次数达上限" id="nexttime">
+<input type="submit" name="Submit" value="投票成功" id="toupiaosuss">
+<p>获奖:</p>
+<input type="submit" name="Submit" value="中奖" id="luckyone">
+<input type="submit" name="Submit" value="没中奖" id="notluck">
+<!-- 触发按钮 -->
+
+
+<div class="z_submitfin">
+	<div class="theme-poptit">
+	    <a href="javascript:;" title="关闭" ><img src="./images/z_close_small.png"></a>
+	</div>
+	<div class="qidai_text">恭喜您已成功报名，<br/>
+赶紧邀请小伙伴来为您投票吧！</div>
+	<div class="z_share">
+		分享到:<img src="./images/weibo.png" width="28" height="28"><img src="./images/qzone.png" width="28" height="28">
+	</div>
+	<span class="z_iknow">知道了</span>
+</div>
+<div class="theme-popover-mask-z_submitfin"></div>
+<!-- 提交完成 -->
+
+<div class="z_toupiao">
+	<div class="theme-poptit">
+		    <a href="javascript:;" title="关闭" ><img src="./images/z_close_small.png"></a>
+	</div>
+	<div class="qidai_text">亲，您得先投票才能参与抽奖<br/>
+快为心仪的准公主投上宝贵的一票吧！</div>
+	<span class="z_iknow">知道了</span>
+</div>
+<div class="theme-popover-mask-z_toupiao"></div>
+<!-- 先投票再抽奖 -->
+
+<div class="z_nochance">
+	<div class="theme-poptit">
+		    <a href="javascript:;" title="关闭" ><img src="./images/z_close_small.png"></a>
+	</div>
+	<div class="qidai_text">亲您今天的抽奖机会已用完<br/>
+请明天继续支持哦</div>
+	<span class="z_iknow">知道了</span>
+</div>
+<div class="theme-popover-mask-z_nochance"></div>
+<!-- 机会用完 -->
+
+<div class="z_nexttime">
+	<div class="theme-poptit">
+		    <a href="javascript:;" title="关闭" ><img src="./images/z_close_small.png"></a>
+	</div>
+	<div class="qidai_text">亲，您的投票次数已达本日上限<br/>
+请明天继续支持哦</div>
+	<span class="z_iknow">知道了</span>
+</div>
+<div class="theme-popover-mask-z_nexttime"></div>
+<!-- 投票次数达上限 -->
+
+<div class="z_toupiaosuss">
+	<div class="theme-poptit">
+		    <a href="javascript:;" title="关闭" ><img src="./images/z_close_small.png"></a>
+	</div>
+	<div class="qidai_text">投票成功</div>
+	<span class="z_iknow">知道了</span>
+</div>
+<div class="theme-popover-mask-z_toupiaosuss"></div>
+<!-- 投票成功 -->
+
+<div class="z_luckyone">
+	<div class="theme-poptit">
+	    <a href="javascript:;" title="关闭" ><img src="./images/z_close_small.png"></a>
+	</div>
+	<div class="qidai_text">太棒了！恭喜你获得<br/>
+<span>一等奖（拉杆箱）</span><br/>
+赶紧完善个人信息，静候奖品吧！</div>
+	<div class="z_share">
+		分享到:<img src="./images/weibo.png" width="28" height="28"><img src="./images/qzone.png" width="28" height="28">
+	</div>
+	<span class="z_iknow">知道了</span>
+</div>
+<div class="theme-popover-mask-z_luckyone"></div>
+<!-- 中奖了 -->
+
+<div class="z_notluck">
+	<div class="theme-poptit">
+	    <a href="javascript:;" title="关闭" ><img src="./images/z_close_small.png"></a>
+	</div>
+	<div class="qidai_text">很遗憾，您没有中奖<br/>
+请再接再厉！</div>
+	<div class="z_share">
+		分享到:<img src="./images/weibo.png" width="28" height="28"><img src="./images/qzone.png" width="28" height="28">
+	</div>
+	<span class="z_iknow">知道了</span>
+</div>
+<div class="theme-popover-mask-z_notluck"></div>
+<!-- 没中奖 -->
+<script type="text/javascript" src="./js/common.js"></script>
+<script type="text/javascript">
+$("#submitfin").click(function(){
+  $(".z_submitfin").fadeIn(100);
+   $(".theme-popover-mask-z_submitfin").fadeIn(100);
+});
+$(".theme-poptit").click(function(){
+  $(".z_submitfin").fadeOut();
+  $(".theme-popover-mask-z_submitfin").fadeOut();
+});
+$(".z_iknow").click(function(){
+  $(".z_submitfin").fadeOut();
+  $(".theme-popover-mask-z_submitfin").fadeOut();
+});
+// 提交完成
+
+$("#toupiao").click(function(){
+  $(".z_toupiao").fadeIn(100);
+   $(".theme-popover-mask-z_toupiao").fadeIn(100);
+});
+$(".theme-poptit").click(function(){
+  $(".z_toupiao").fadeOut();
+  $(".theme-popover-mask-z_toupiao").fadeOut();
+});
+$(".z_iknow").click(function(){
+  $(".z_toupiao").fadeOut();
+  $(".theme-popover-mask-z_toupiao").fadeOut();
+});
+// 先投票再抽奖
+
+$("#nochance").click(function(){
+  $(".z_nochance").fadeIn(100);
+   $(".theme-popover-mask-z_nochance").fadeIn(100);
+});
+$(".theme-poptit").click(function(){
+  $(".z_nochance").fadeOut();
+  $(".theme-popover-mask-z_nochance").fadeOut();
+});
+$(".z_iknow").click(function(){
+  $(".z_nochance").fadeOut();
+  $(".theme-popover-mask-z_nochance").fadeOut();
+});
+// 机会用完
+
+$("#nexttime").click(function(){
+  $(".z_nexttime").fadeIn(100);
+   $(".theme-popover-mask-z_nexttime").fadeIn(100);
+});
+$(".theme-poptit").click(function(){
+  $(".z_nexttime").fadeOut();
+  $(".theme-popover-mask-z_nexttime").fadeOut();
+});
+$(".z_iknow").click(function(){
+  $(".z_nexttime").fadeOut();
+  $(".theme-popover-mask-z_nexttime").fadeOut();
+});
+// 投票次数达上限
+
+$("#toupiaosuss").click(function(){
+  $(".z_toupiaosuss").fadeIn(100);
+   $(".theme-popover-mask-z_toupiaosuss").fadeIn(100);
+});
+$(".theme-poptit").click(function(){
+  $(".z_toupiaosuss").fadeOut();
+  $(".theme-popover-mask-z_toupiaosuss").fadeOut();
+});
+$(".z_iknow").click(function(){
+  $(".z_toupiaosuss").fadeOut();
+  $(".theme-popover-mask-z_toupiaosuss").fadeOut();
+});
+// 投票成功
+
+$("#luckyone").click(function(){
+  $(".z_luckyone").fadeIn(100);
+   $(".theme-popover-mask-z_luckyone").fadeIn(100);
+});
+$(".theme-poptit").click(function(){
+  $(".z_luckyone").fadeOut();
+  $(".theme-popover-mask-z_luckyone").fadeOut();
+});
+$(".z_iknow").click(function(){
+  $(".z_luckyone").fadeOut();
+  $(".theme-popover-mask-z_luckyone").fadeOut();
+});
+// 中奖了
+
+$("#notluck").click(function(){
+  $(".z_notluck").fadeIn(100);
+   $(".theme-popover-mask-z_notluck").fadeIn(100);
+});
+$(".theme-poptit").click(function(){
+  $(".z_notluck").fadeOut();
+  $(".theme-popover-mask-z_notluck").fadeOut();
+});
+$(".z_iknow").click(function(){
+  $(".z_notluck").fadeOut();
+  $(".theme-popover-mask-z_notluck").fadeOut();
+});
+// 没中奖
+</script>
+</body>
+</html>

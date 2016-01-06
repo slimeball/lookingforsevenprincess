@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>幸运抽奖</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<script type="text/javascript" src="./js/jquery-1.9.1.js"></script>
+<script src="./js/uploadPreview.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="./js/jQueryRotate.2.2.js"></script>
+<script type="text/javascript" src="./js/jquery.easing.min.js"></script>
+<link href="./css/lucky.css" rel="stylesheet">
+<script type="text/javascript">
+	// 弹出规则
+jQuery(document).ready(function($) {
+	$('.theme-login-pic').click(function(){
+		$('.theme-popover-mask-pic').fadeIn(0);
+		$('.theme-popover-pic').slideDown(0);
+		$('.theme-popover-mask-join').fadeOut(0);
+		$('.theme-popover-join').slideUp(0);
+	})
+	$('.theme-poptit .close-pic').click(function(){
+		$('.theme-popover-mask-pic').fadeOut(0);
+		$('.theme-popover-pic').slideUp(0);
+	})
+
+})
+
+// 弹出规则
+$(function(){ 
+     $("#startbtn").click(function(){ 
+        lottery(); 
+    }); 
+}); 
+function lottery(){ 
+    $.ajax({ 
+        type: 'POST', 
+        url: 'data.php', 
+        dataType: 'json', 
+        cache: false, 
+        error: function(){ 
+            alert('出错了！'); 
+            return false; 
+        }, 
+        success:function(json){ 
+            var a = json.angle; //角度 
+            var p = json.prize; //奖项 
+            $("#startbtn").rotate({ 
+                duration:3000, //转动时间 
+                angle: 0, 
+                animateTo:1800+a, //转动角度 
+                easing: $.easing.easeOutSine, 
+                callback: function(){ 
+                    var con = confirm('恭喜你，中得'+p+'\n还要再来一次吗？'); 
+                    if(con){ 
+                        lottery(); 
+                    }else{ 
+                        return false; 
+                    } 
+                } 
+            }); 
+        } 
+    }); 
+} 
+</script>
+
+</head>
+<body>
+<div class="theme-popover-mask-qidai"></div>
+<!-- 導航以上 -->
+<div class="z_head">
+	<div class="z_head_top">
+		<span></span>
+		<a class="z_head_login" href="login.html"></a>
+		<a class="z_head_member" href="member.html"></a>
+	</div>
+	<div class="z_flash">
+		<embed src="./images/index.swf" allowFullScreen="true" quality="high" width="1000" height="559" align="middle" wmode="transparent" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+	</div>
+	<div class="z_nav" id="z_nav">
+		<ul>
+			<li><a href="index.html"><img src="./images/li_index.png"></a></li>
+			<li><a href="index.html#netzone"><img src="./images/li_netzone.png"></a></a></li>
+			<li><a href="index.html#tencity"><img src="./images/li_tencity.png"></a></a></li>
+			<li><a href="lucky.html"><img src="./images/li_lucky.png"></a></a></li>
+			<li><a href="guide.html"><img src="./images/li_goin.png"></a></a></li>
+			<li><a class="click_qidai"><img src="./images/li_player.png"></a></a></li>
+		</ul>
+	</div>
+</div>
+<!-- 導航以上 -->
+<!-- 幸运转盘 -->
+<div class="z_lucky_main">
+	<div class="z_lucky_content">
+		<div class="z_lucky_main_l">
+			<div class="z_lucky_info">获奖信息</div>
+			<div class="z_lucky_box">
+				<div class="z_lucky_list" id="colee">
+					<ul id="colee1">
+						<li><p><span>08/18 20:25</span>3548****</p>获得<b> 七度空间公主系列半年礼包</b></li>
+						<li><p><span>08/18 20:25</span>3548****</p>获得<b> 七度空间公主系列半年礼包</b></li>
+						<li><p><span>08/18 20:25</span>3548****</p>获得<b> 七度空间公主系列半年礼包</b></li>
+						<li><p><span>08/18 20:25</span>3548****</p>获得<b> 七度空间公主系列半年礼包</b></li>
+						<li><p><span>08/18 20:25</span>3548****</p>获得<b> 七度空间公主系列半年礼包</b></li>
+						<li><p><span>08/18 20:25</span>3548****</p>获得<b> 七度空间公主系列半年礼包</b></li>
+						<li><p><span>08/18 20:25</span>3548****</p>获得<b> 七度空间公主系列半年礼包</b></li>
+					</ul>
+					<ul id="colee2"></ul>
+				</div>
+				<div class="z_lucky_rule theme-login-pic">
+					<a><img src="./images/readrule.png"></a>
+				</div>
+			</div>
+		</div>
+		<div class="z_lucky_main_r">
+			<div class="z_lucky_title">
+				亲爱的"您所浏览的页面为腾讯公司广告客"呀，你今天还有<b>4次</b>抽奖机会<a href=""><img src="./images/c_p_flile.png"></a>
+			</div>
+			<div class="z_lucky_zone">
+				<div id="disk" class="disk"></div>
+				<div id="start" class="start"><img src="./images/start.png" id="startbtn"></div>
+			</div>
+			<div class="z_share">
+				分享到:<img src="./images/weibo.png" width="28" height="28"><img src="./images/qzone.png" width="28" height="28">
+			</div>
+		</div>
+	</div>	
+</div>
+<div class="z_footer">
+	<div class="z_footer_main">
+		<img src="./images/footer_logo.png">
+		<p>Copyright © 2014 恒安集团有限公司 </br>
+您所浏览的页面为腾讯公司广告客户在腾讯平台刊登之广告，所述产品非腾讯出品</br>
+您默认同意您的昵称等信息可出现在腾讯公司域名下的产品中，以便您和好友一同分享活动信息</br>
+用户上传的内容属于用户自主行为，与腾讯公司及恒安集团七度空间无关，请确保您上传的内容无版权争议</p>
+	</div>
+</div>
+<!-- 底部 -->
+<!-- 幸运转盘 -->
+<!-- 弹出窗 -->
+<div class="theme-popover-pic">
+     <div class="theme-poptit">
+          <a href="javascript:;" title="关闭" class="close-pic"><img src="./images/z_close.png"></a>
+     </div>
+     <div class="z_u_input">
+     	<div class="z_u_uptitle">(任何参与本活动的粉丝，在参与本活动前均应认真阅读以下内容，</br>
+参与本活动即视为参与者已充分理解并同意以下各项内容)</div>
+     	<div class="z_u_uppic">
+     		<div class="z_u_rule">
+     			<ul>
+     				<li><span>1</span><b>本次抽奖活动共分为两个阶段</b></br>1）网络赛区初赛阶段，10月28日——11月8日，共12天；</br>2）网络赛区与十城选拔复赛阶段，11月15日——11月28日，共14天；</li>
+     				<li><span>2</span><b>投票条件：活动期内，为参赛选手每投一票能获得<i>1次抽奖机会</i>，每位粉丝每个账号每天只能<i>投5次票</i>，抽奖结果实时公布；</b></li>
+     				<li><span>3</span><b>奖品设置</b></br><i>(网络赛区初赛阶段投票)</i></br>
+     					<i>一等奖</i>——学生复古旅行箱万向轮箱包20寸，共37份；</br>
+						<i>二等奖</i>——七度空间公主系列月度礼包，共177份；</br>
+						<i>(网络赛区与十城选拔复赛阶段投票)</i></br>
+						<i>一等奖</i>——iPad mini2，共1份；</br>
+<i>二等奖</i>——乐魔（LOMOGRAPHY） 广角相机，共7份；</br>
+<i>三等奖</i>——七度空间公主系列全年礼包，共27份；</br>
+<i>四等奖</i>——七度空间公主系列半年礼包，共37份；</br>
+<i>五等奖</i>——京东E卡星座卡，共57份；</br>
+<i>六等奖</i>——恒安生活馆电商代金券，共57份；</br>
+<i>七等奖</i>——七度空间公主系列月度礼包，共177份；</br>
+     				</li>
+     				<li><span>4</span><b>为保障各位粉丝的权益，如发现粉丝在活动中使用任何不正当手段参与活动，主办方有权在事先不通知
+的前提下取消其参加及获奖资格；</b></li>
+     				<li><span>5</span><b>活动中使用不正当的手段参与活动，包括但不限于</b></br>
+     					1） 同一粉丝或同一IP地址注册多个账号，利用软件或人工方法非法赚取七度币反复参与抽奖；</br>
+2） 同一粉丝盗用、借用他人已有账号参与活动或盗用、借用他人信息注册账号参与活动，提高获奖几率；</br>
+3） 利用活动的规则或技术漏洞参与刷奖；</br>
+4） 通过其他违法违规的行为参与本活动；</br>
+					<i>凡发现有以上行为的粉丝，将被取消参与及获奖资格,并不另行通知；</i>
+     				</li>
+     				<li><span>6</span><b>所有奖品以实物为准，不设退换服务，不可兑换现金，获奖奖品的售后服务依照生产商的承诺实施；</b></br></li>
+     				<li><span>7</span><b>获奖粉丝需在活动结束后7天内完善个人资料，包括详细的收货地址、收货人姓名及联系电话，一个姓名仅能对应一个账号、一个联系电话和地址；同一个qq号、同一联系电话或同一收货地址将只发一份奖品；活动结束后1个月内将会有客服人员电话联系获奖粉丝核实个人资料，核实无误后才安排寄发奖品；所有实物奖品将由主办方在活动结束后2个月内发奖，获奖者请如因地址、姓名、电话不准确或在活动结束后7日内未完善个人资料，导致客服人员无法及时联系获奖人员导致无法顺利发奖的，将由中奖者自行承担后果；</b></li>
+     				<li><span>8</span><b>对于邮寄过程中非人为以及不能抗拒的因素，导致粉丝没有收到奖品的情况，主办方不承担任何责任；</b></li>
+     				<li><span>9</span><b>在法律法规允许的范围内，恒安集团有限公司拥有本活动最终解释权。</b></li>
+     				<li><span>10</span><b>粉丝对于活动规则如有任何疑问，请联系活动客服<i>QQ 2316893556</i>，或邮件<i>2316893556@qq.com</i>，
+谢谢。</b><i>（客服QQ服务时间：周一至周五10：00-18：00）</i></li>
+     			</ul>
+     		</div>
+     	</div>
+     </div>
+</div>
+<div class="theme-popover-mask-pic"></div>
+<!-- 弹出窗 -->
+</form>
+<div class="z_qidai">
+	<div class="theme-poptit">
+		    <a href="javascript:;" title="关闭" ><img src="./images/z_close_small.png"></a>
+		</div>
+		<div class="qidai_text">精彩内容即将呈现<br/>敬请期待</div>
+		<span class="z_iknow">知道了</span>
+</div>
+<script>
+var speed=30;
+var colee2=document.getElementById("colee2");
+var colee1=document.getElementById("colee1");
+var colee=document.getElementById("colee");
+colee2.innerHTML=colee1.innerHTML; //克隆colee1为colee2
+function Marquee1(){
+//当滚动至colee1与colee2交界时
+if(colee2.offsetTop-colee.scrollTop<=0){
+ colee.scrollTop-=colee1.offsetHeight; //colee跳到最顶端
+ }else{
+ colee.scrollTop++
+}
+}
+var MyMar1=setInterval(Marquee1,speed)//设置定时器
+//鼠标移上时清除定时器达到滚动停止的目的
+colee.onmouseover=function() {clearInterval(MyMar1)}
+//鼠标移开时重设定时器
+colee.onmouseout=function(){MyMar1=setInterval(Marquee1,speed)}
+</script>
+<!--向上滚动代码结束-->
+<!-- 敬请期待 -->
+<script type="text/javascript" src="./js/common.js"></script>
+</body>
+</html>
